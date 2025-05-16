@@ -1,0 +1,23 @@
+<div class="form-container">
+  <h2>{{ modoEdit ? 'Editar Atleta' : 'Añadir Atleta' }}</h2>
+
+  <form (ngSubmit)="guardar()" #formulario="ngForm" class="athlete-form">
+
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="atleta.name" required />
+
+    <label for="club">Club:</label>
+    <input type="text" id="club" name="club" [(ngModel)]="atleta.club" required />
+
+    <label for="event">Evento:</label>
+    <input type="text" id="event" name="event" [(ngModel)]="atleta.event" required />
+
+    <label for="mark">Marca:</label>
+    <input type="text" id="mark" name="mark" [(ngModel)]="atleta.mark" required />
+
+    <label for="birthDate">Fecha de nacimiento:</label>
+    <input type="date" id="birthDate" name="birthDate" [(ngModel)]="atleta.birthDate" required />
+
+    <button type="submit">{{ modoEdit ? 'Actualizar' : 'Crear' }}</button>
+  </form>
+</div>

@@ -1,0 +1,21 @@
+
+<div class="detail-container" *ngIf="atleta; else cargando">
+  <h2>{{ atleta.name }}</h2>
+
+  <div class="info">
+    <p><strong>Club:</strong> {{ atleta.club }}</p>
+    <p><strong>Evento:</strong> {{ atleta.event }}</p>
+    <p><strong>Marca:</strong> {{ atleta.mark }}</p>
+    <p><strong>Fecha de nacimiento:</strong> {{ atleta.birthDate | date:'dd-MM-yyyy' }}</p>
+    <p><strong>Edad:</strong> {{ atleta.calcularEdad?.() || 'N/A' }} años</p>
+  </div>
+
+  <div class="actions">
+    <a [routerLink]="['/editar', atleta.id]" class="btn edit">Editar</a>
+    <button (click)="deleteAtleta()" class="btn delete">Eliminar</button>
+  </div>
+</div>
+
+<ng-template #cargando>
+  <p>Cargando datos del atleta...</p>
+</ng-template>

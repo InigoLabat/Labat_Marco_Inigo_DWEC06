@@ -1,0 +1,10 @@
+<header class="navbar">
+    <div class="nav-texto">MI APLICACIÓN DE GESTIÓN DE ATLETAS</div>
+    <nav class="nav-links">
+        <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <a [routerLink]="['/atletas']" routerLinkActive="active">Listado</a>
+        <a [routerLink]="['/aniadir']" routerLinkActive="active">Añadir</a>
+    </nav>
+</header>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,30 @@
+<div class="contenedor">
+    <h2 h2 class="title">Listado de Atletas</h2>
+
+    <div class="lista" *ngIf="!cargando; else cargandoTemplate">
+
+        <div *ngIf="atletasListado.length === 0">
+            <p>No hay atletas disponibles.</p>
+        </div>
+
+        <div *ngFor="let atleta of atletasListado" class="card">
+            <h3>{{ atleta.name }}</h3>
+            <hr>
+            <p><strong>Club:</strong> {{ atleta.club }}</p>
+            <p><strong>Evento:</strong> {{ atleta.event }}</p>
+            <p><strong>Marca:</strong> {{ atleta.mark }}</p>
+            <p><strong>Edad:</strong> {{ atleta.calcularEdad?.() || 'N/A' }} años</p>
+
+            <div class="actions">
+                <a [routerLink]="['/atletas', atleta.id]" class="btn">Ver</a>
+                <a [routerLink]="['/editar', atleta.id]" class="btn edit">Editar</a>
+                <button (click)="deleteAtleta(atleta.id!)" class="btn delete">Eliminar</button>
+            </div>
+        </div>
+    </div>
+
+    <ng-template #cargandoTemplate>
+        <p>Cargando datos...</p>
+    </ng-template>
+
+</div>
